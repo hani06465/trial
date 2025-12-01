@@ -1,5 +1,5 @@
 const CACHE_NAME = "prank-app-cache-v1";
-const urlsToCache = ["index.html", "manifest.json", "icon.png"];
+const urlsToCache = ["index.html", "manifest.json", "icon.png", "prank.mp3"];
 
 self.addEventListener("install", event => {
   event.waitUntil(
@@ -16,3 +16,4 @@ self.addEventListener("fetch", event => {
     })
   );
 });
+
