@@ -21,6 +21,25 @@
             audio.play();
         }
     </script>
+    <audio id="prankSong" src="prank.mp3" autoplay></audio>
+
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js")
+    .then(() => console.log("Service Worker Registered"));
+}
+
+// Auto-play song even if browser blocks autoplay
+window.addEventListener('load', () => {
+  const song = document.getElementById('prankSong');
+  song.play().catch(() => {
+    // If browser blocks autoplay, play after user interaction
+    document.body.addEventListener('click', () => song.play());
+  });
+});
+</script>
+
 
 </body>
 </html>
+
